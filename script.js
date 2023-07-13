@@ -14,6 +14,14 @@ setInterval(function(){
     if(jumping==0){
         character.style.top = (characterTop+3)+"px";
     }
+    if(counter>10&&counter<20){
+        block.style.animationDuration=1+"s";
+        hole.style.animationDuration=1+"s";
+    }
+    if(counter>20){
+        block.style.animationDuration=.5+"s";
+        hole.style.animationDuration=.5+"s";
+    }
     var blockLeft = parseInt(window.getComputedStyle(block).getPropertyValue("left"));
     var holeTop = parseInt(window.getComputedStyle(hole).getPropertyValue("top"));
     var cTop = -(500-characterTop);
@@ -21,8 +29,13 @@ setInterval(function(){
         alert("Game over. Score: "+(counter-1));
         character.style.top = 100 + "px";
         counter=0;
+        block.style.left=400+"px";
+        hole.style.left=400+"px";
+        block.style.animationDuration=2+"s";
+        hole.style.animationDuration=2+"s";
     }
 },10);
+
 
 function jump(){
     jumping = 1;
@@ -38,5 +51,5 @@ function jump(){
             jumpCount=0;
         }
         jumpCount++;
-    },10);
+    },5);
 }
